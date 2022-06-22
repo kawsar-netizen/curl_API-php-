@@ -3,7 +3,7 @@
 $url = "https://reqres.in/api/users/2";
 
 $data_array = array(
-"name" => "Sinat ",
+"name" => "Kawsar Khan Sizar",
 "job" => "Developer"
 );
 
@@ -25,6 +25,7 @@ if($e = curl_error($ch)){
     echo $e;
 }else{
     $decoded = json_decode($resp,true);
+    echo '<pre>';
     var_dump($resp);
     var_dump($decoded);
     $encoded = json_encode($decoded);

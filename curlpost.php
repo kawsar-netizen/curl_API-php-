@@ -3,8 +3,8 @@
 $url = "https://reqres.in/api/users";
 
 $data_array = array(
-"name" => "Kawsar Khan Sizar",
-"job" => "Developer"
+"name" => "Sinat Al Meherima",
+"job" => "Doctor"
 );
 
 $data = http_build_query($data_array);
