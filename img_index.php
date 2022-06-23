@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -126,10 +126,10 @@
 
 </body>
 
-</html>
+</html> -->
 
 <!-- My html code in image API using -->
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -201,4 +201,4 @@
     </script>
 </body>
 
-</html> -->
+</html>
