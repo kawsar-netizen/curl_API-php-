@@ -3,7 +3,12 @@
 
 $url = "https://reqres.in/api/users?page=2";
 
+// api for shovo bai provide
 // $url = "https://www.itbadmission.com/mobile/display.php";
+
+// api for Nishad bai provide
+// $url = "http://uatapi.dhakabank.com.bd/DblUserServices/FubsUserServices.asmx";
+
 $ch = curl_init();
 
 curl_setopt($ch,CURLOPT_URL,$url);

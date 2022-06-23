@@ -17,6 +17,7 @@ if($e = curl_error($ch)){
     
     echo $e;
 }
+
 fclose($fh);
 
 curl_close($ch);
