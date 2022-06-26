@@ -1,0 +1,53 @@
+public function userlist(){
+ 
+    $inquiry_url     = "http://uatapi.dhakabank.com.bd/DblUserServices/FubsUserServices.asmx?wsdl";
+  
+    $curl = curl_init();
+    $xml_body = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dhak="http://dhakabank.com.bd">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <dhak:DoLogOutUser>
+          <!--Optional:-->
+          <dhak:userId>AHABIB</dhak:userId>
+       </dhak:DoLogOutUser>
+    </soapenv:Body>
+ </soapenv:Envelope>';
+  
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $inquiry_url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => $xml_body,
+        CURLOPT_HTTPHEADER => array(
+        'Content-Type: text/xml',
+        "SOAPAction: http://dhakabank.com.bd/DoLogOutUser"
+      )
+    ));
+  
+    $result      = curl_exec($curl);
+
+   // echo $response;
+
+    
+
+list($trash,$result)=explode('<soap:Body>',$result);
+list($result,$trash)=explode('</soap:Body>',$result);
+unset($trash);
+$result=str_replace('xmlns="url"','',$result);
+
+$simple_result=simplexml_load_string($result);
+$json_result=json_encode($simple_result);
+
+//var_export($simple_result);
+$data= json_decode($json_result, true);
+echo "<pre>";
+print_r($data['DoLogOutUserResult']);
+ 
+  
+    
+}
